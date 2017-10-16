@@ -22,7 +22,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </developer>
- <date>2017-09-19</date>
+ <date>2017-10-17</date>
  <version>
   <release>2.0.6</release>
   <api>2.0.0</api>
@@ -40,7 +40,6 @@
    <dir name="doc">
     <dir name="Horde">
      <dir name="Tree">
-      <file name="COPYING" role="doc" />
       <file name="UPGRADING" role="doc" />
      </dir> <!-- /doc/Horde/Tree -->
     </dir> <!-- /doc/Horde -->
@@ -57,10 +56,11 @@
       </dir> <!-- /lib/Horde/Tree/Renderer -->
       <file name="Exception.php" role="php" />
       <file name="Renderer.php" role="php" />
-     </dir> <!-- //lib/Horde/Tree -->
+     </dir> <!-- /lib/Horde/Tree -->
      <file name="Tree.php" role="php" />
-    </dir> <!-- //lib/Horde -->
-   </dir> <!-- //lib -->
+    </dir> <!-- /lib/Horde -->
+   </dir> <!-- /lib -->
+   <file name="LICENSE" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -103,7 +103,6 @@
  </dependencies>
  <phprelease>
   <filelist>
-   <install as="COPYING" name="doc/Horde/Tree/COPYING" />
    <install as="UPGRADING" name="doc/Horde/Tree/UPGRADING" />
    <install as="Horde/Tree.php" name="lib/Horde/Tree.php" />
    <install as="Horde/Tree/Exception.php" name="lib/Horde/Tree/Exception.php" />
@@ -113,6 +112,7 @@
    <install as="Horde/Tree/Renderer/Jquerymobile.php" name="lib/Horde/Tree/Renderer/Jquerymobile.php" />
    <install as="Horde/Tree/Renderer/Select.php" name="lib/Horde/Tree/Renderer/Select.php" />
    <install as="Horde/Tree/Renderer/Simplehtml.php" name="lib/Horde/Tree/Renderer/Simplehtml.php" />
+   <install as="LICENSE" name="LICENSE" />
   </filelist>
  </phprelease>
  <changelog>
@@ -381,7 +381,7 @@ Converted to package.xml 2.0 for pear.horde.org
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-09-19</date>
+   <date>2017-10-17</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
