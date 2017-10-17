@@ -40,7 +40,7 @@
    <dir name="doc">
     <dir name="Horde">
      <dir name="Tree">
-      <file name="UPGRADING" role="doc" />
+      <file name="UPGRADING.rst" role="doc" />
      </dir> <!-- /doc/Horde/Tree -->
     </dir> <!-- /doc/Horde -->
    </dir> <!-- /doc -->
@@ -103,7 +103,7 @@
  </dependencies>
  <phprelease>
   <filelist>
-   <install as="UPGRADING" name="doc/Horde/Tree/UPGRADING" />
+   <install as="UPGRADING.rst" name="doc/Horde/Tree/UPGRADING.rst" />
    <install as="Horde/Tree.php" name="lib/Horde/Tree.php" />
    <install as="Horde/Tree/Exception.php" name="lib/Horde/Tree/Exception.php" />
    <install as="Horde/Tree/Renderer.php" name="lib/Horde/Tree/Renderer.php" />
