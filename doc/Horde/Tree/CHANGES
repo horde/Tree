@@ -1,0 +1,137 @@
+----------
+v2.0.6-git
+----------
+
+
+------
+v2.0.5
+------
+
+[jan] Mark PHP 7 as supported.
+
+
+------
+v2.0.4
+------
+
+[jan] Fix issues with certain locales like Turkish.
+
+
+------
+v2.0.3
+------
+
+[jan] Improve PSR-2 compatibility.
+[jan] Add Composer definition.
+
+
+------
+v2.0.2
+------
+
+[mms] Fix licensing documentation; Horde_Tree has been released under LGPL 2.1
+      since 2004 (Bug #12070).
+
+
+------
+v2.0.1
+------
+
+[jan] Re-packaged 2.0.0 release.
+
+
+------
+v2.0.0
+------
+
+First stable release for Horde 5.
+
+
+-----------
+v2.0.0beta2
+-----------
+
+[jan] Tweak CSS names.
+
+
+-----------
+v2.0.0beta1
+-----------
+
+First beta release for Horde 5.
+
+
+------------
+v2.0.0alpha1
+------------
+
+First alpha release for Horde 5.
+[jan] Separate tree object from tree renderers.
+
+
+------
+v1.0.2
+------
+
+
+------
+v1.0.1
+------
+
+[rla] Add license file.
+
+
+------
+v1.0.0
+------
+
+First stable release for Horde 4.
+
+
+---------
+v1.0.0RC2
+---------
+
+Second release candidate for Horde 4.
+
+
+---------
+v1.0.0RC1
+---------
+
+First release candidate for Horde 4.
+
+
+-----------
+v1.0.0beta1
+-----------
+
+First beta release for Horde 4.
+
+
+------------
+v1.0.0alpha1
+------------
+
+First alpha release for Horde 4.
+Remove ability to set HTML 'onclick' parameter.
+Add jQuery Mobile list view renderer.
+Split driver code from main class into Base class.
+Add simple HTML renderer.
+Remove dependency on horde/Core.
+Move javascript renderer to horde/Core.
+Add Horde_Tree_Exception::.
+
+
+------
+v0.0.2
+------
+
+Converted to package.xml 2.0 for pear.horde.org
+
+
+------
+v0.0.1
+------
+
+Initial release as a PEAR package

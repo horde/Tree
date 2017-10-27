@@ -22,7 +22,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </developer>
- <date>2017-10-17</date>
+ <date>2017-10-27</date>
  <version>
   <release>2.0.6</release>
   <api>2.0.0</api>
@@ -39,6 +39,7 @@
    <dir name="doc">
     <dir name="Horde">
      <dir name="Tree">
+      <file name="CHANGES" role="doc" />
       <file name="UPGRADING.rst" role="doc" />
      </dir> <!-- /doc/Horde/Tree -->
     </dir> <!-- /doc/Horde -->
@@ -102,6 +103,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Tree/CHANGES" />
    <install as="UPGRADING.rst" name="doc/Horde/Tree/UPGRADING.rst" />
    <install as="Horde/Tree.php" name="lib/Horde/Tree.php" />
    <install as="Horde/Tree/Exception.php" name="lib/Horde/Tree/Exception.php" />
@@ -379,7 +381,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-10-17</date>
+   <date>2017-10-27</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
    </notes>
