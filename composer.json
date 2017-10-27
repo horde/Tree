@@ -21,7 +21,7 @@
             "role": "developer"
         }
     ],
-    "version": "2.0.5",
+    "version": "2.0.6",
     "time": "2017-09-19",
     "repositories": [
         {
@@ -31,9 +31,9 @@
     ],
     "require": {
         "php": "^5.3 || ^7",
-        "pear-pear.horde.org/Horde_Exception": "^2@stable",
-        "pear-pear.horde.org/Horde_Url": "^2@stable",
-        "pear-pear.horde.org/Horde_Util": "^2@stable"
+        "pear-pear.horde.org/Horde_Exception": "^2",
+        "pear-pear.horde.org/Horde_Url": "^2",
+        "pear-pear.horde.org/Horde_Util": "^2"
     },
     "suggest": {
         "ext-gettext": "*"
