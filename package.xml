@@ -22,7 +22,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </developer>
- <date>2017-09-19</date>
+ <date>2017-10-30</date>
  <version>
   <release>2.0.6</release>
   <api>2.0.0</api>
@@ -40,6 +40,7 @@
    <dir name="doc">
     <dir name="Horde">
      <dir name="Tree">
+      <file name="CHANGES" role="doc" />
       <file name="COPYING" role="doc" />
       <file name="UPGRADING" role="doc" />
      </dir> <!-- /doc/Horde/Tree -->
@@ -103,6 +104,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Tree/CHANGES" />
    <install as="COPYING" name="doc/Horde/Tree/COPYING" />
    <install as="UPGRADING" name="doc/Horde/Tree/UPGRADING" />
    <install as="Horde/Tree.php" name="lib/Horde/Tree.php" />
@@ -381,7 +383,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-09-19</date>
+   <date>2017-10-30</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
