@@ -1,8 +1,8 @@
 {
     "name": "horde/tree",
-    "description": "Horde Tree API",
+    "description": "Tree rendering library",
     "type": "library",
-    "homepage": "https://pear.horde.org",
+    "homepage": "https://www.horde.org/libraries/Horde_Tree",
     "license": "LGPL-2.1",
     "authors": [
         {
@@ -22,7 +22,7 @@
         }
     ],
     "version": "2.0.6",
-    "time": "2017-10-17",
+    "time": "2017-11-11",
     "repositories": [
         {
             "type": "pear",
