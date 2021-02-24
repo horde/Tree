@@ -42,9 +42,6 @@
     "autoload": {
         "psr-0": {
             "Horde_Tree": "lib/"
-        },
-        "psr-4": {
-            "Horde\\Tree\\": "src/"
         }
     }
 }
