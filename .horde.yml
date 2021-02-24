@@ -3,8 +3,8 @@ id: Tree
 name: Tree
 full: Tree rendering library
 description: >-
-  A library providing tree views of hierarchical information. It allows for expanding/collapsing of
-  branches and maintains their state.
+  A library providing tree views of hierarchical information. It allows for
+  expanding/collapsing of branches and maintains their state.
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Tree
@@ -28,11 +28,11 @@ authors:
     active: false
     role: developer
 version:
-  release: 2.0.6
-  api: 2.0.0
+  release: 3.0.0alpha1
+  api: 3.0.0alpha1
 state:
-  release: stable
-  api: stable
+  release: alpha
+  api: alpha
 license:
   identifier: LGPL-2.1
   uri: http://www.horde.org/licenses/lgpl21
