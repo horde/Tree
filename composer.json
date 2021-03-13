@@ -1,7 +1,7 @@
 {
     "name": "horde/tree",
     "description": "Tree rendering library",
-    "type": "horde-library",
+    "type": "library",
     "homepage": "https://www.horde.org/libraries/Horde_Tree",
     "license": "LGPL-2.1",
     "authors": [
@@ -21,8 +21,7 @@
             "role": "developer"
         }
     ],
-    "version": "3.0.0alpha3",
-    "time": "2021-02-24",
+    "time": "2021-03-13",
     "repositories": [
         {
             "type": "composer",
@@ -30,7 +29,6 @@
         }
     ],
     "require": {
-        "horde/horde-installer-plugin": "*",
         "php": "^7",
         "horde/exception": "^3",
         "horde/url": "^3",
