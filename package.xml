@@ -22,7 +22,7 @@
   <email>slusarz@horde.org</email>
   <active>no</active>
  </developer>
- <date>2021-03-13</date>
+ <date>2022-10-07</date>
  <version>
   <release>3.0.0alpha4</release>
   <api>3.0.0alpha1</api>
@@ -31,12 +31,22 @@
   <release>alpha</release>
   <api>alpha</api>
  </stability>
- <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
+ <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1-only</license>
  <notes>
-* 
+* [rla] PHPStan Level 5 compliance. Cleaned up phpdoc and missing properties.
+* |+
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name=".github">
+    <dir name="workflows">
+     <file name="ci.yml" role="php" />
+     <file name="phpdoc.yml" role="php" />
+     <file name="release.yml" role="php" />
+     <file name="update-composer-json.yml" role="php" />
+     <file name="update-satis.yml" role="php" />
+    </dir> <!-- /.github/workflows -->
+   </dir> <!-- /.github -->
    <dir name="doc">
     <dir name="Horde">
      <dir name="Tree">
@@ -61,15 +71,599 @@
      <file name="Tree.php" role="php" />
     </dir> <!-- /lib/Horde -->
    </dir> <!-- /lib -->
+   <dir name="vendor">
+    <dir name="composer">
+     <file name="autoload_classmap.php" role="php" />
+     <file name="autoload_namespaces.php" role="php" />
+     <file name="autoload_psr4.php" role="php" />
+     <file name="autoload_real.php" role="php" />
+     <file name="autoload_static.php" role="php" />
+     <file name="ClassLoader.php" role="php" />
+     <file name="installed.json" role="php" />
+     <file name="installed.php" role="php" />
+     <file name="InstalledVersions.php" role="php" />
+     <file name="LICENSE" role="php" />
+     <file name="platform_check.php" role="php" />
+    </dir> <!-- /vendor/composer -->
+    <dir name="horde">
+     <dir name="exception">
+      <dir name=".github">
+       <dir name="workflows">
+        <file name="ci.yml" role="php" />
+        <file name="phpdoc.yml" role="php" />
+        <file name="update-satis.yml" role="php" />
+       </dir> <!-- /vendor/horde/exception/.github/workflows -->
+      </dir> <!-- /vendor/horde/exception/.github -->
+      <dir name="doc">
+       <dir name="Horde">
+        <dir name="Exception">
+         <file name="CHANGES" role="php" />
+        </dir> <!-- /vendor/horde/exception/doc/Horde/Exception -->
+       </dir> <!-- /vendor/horde/exception/doc/Horde -->
+      </dir> <!-- /vendor/horde/exception/doc -->
+      <dir name="lib">
+       <dir name="Horde">
+        <dir name="Exception">
+         <file name="LastError.php" role="php" />
+         <file name="NotFound.php" role="php" />
+         <file name="Pear.php" role="php" />
+         <file name="PermissionDenied.php" role="php" />
+         <file name="Translation.php" role="php" />
+         <file name="Wrapped.php" role="php" />
+        </dir> <!-- /vendor/horde/exception/lib/Horde/Exception -->
+        <file name="Exception.php" role="php" />
+       </dir> <!-- /vendor/horde/exception/lib/Horde -->
+      </dir> <!-- /vendor/horde/exception/lib -->
+      <dir name="locale">
+       <dir name="ar">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/ar/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/ar -->
+       <dir name="bg">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/bg/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/bg -->
+       <dir name="bs">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/bs/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/bs -->
+       <dir name="ca">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/ca/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/ca -->
+       <dir name="cs">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/cs/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/cs -->
+       <dir name="da">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/da/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/da -->
+       <dir name="de">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/de/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/de -->
+       <dir name="el">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/el/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/el -->
+       <dir name="es">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/es/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/es -->
+       <dir name="et">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/et/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/et -->
+       <dir name="eu">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/eu/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/eu -->
+       <dir name="fa">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/fa/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/fa -->
+       <dir name="fi">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/fi/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/fi -->
+       <dir name="fr">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/fr/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/fr -->
+       <dir name="gl">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/gl/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/gl -->
+       <dir name="he">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/he/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/he -->
+       <dir name="hr">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/hr/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/hr -->
+       <dir name="hu">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/hu/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/hu -->
+       <dir name="id">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/id/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/id -->
+       <dir name="is">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/is/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/is -->
+       <dir name="it">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/it/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/it -->
+       <dir name="ja">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/ja/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/ja -->
+       <dir name="km">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/km/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/km -->
+       <dir name="ko">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/ko/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/ko -->
+       <dir name="lt">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/lt/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/lt -->
+       <dir name="lv">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/lv/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/lv -->
+       <dir name="mk">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/mk/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/mk -->
+       <dir name="nb">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/nb/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/nb -->
+       <dir name="nl">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/nl/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/nl -->
+       <dir name="nn">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/nn/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/nn -->
+       <dir name="pl">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/pl/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/pl -->
+       <dir name="pt">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/pt/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/pt -->
+       <dir name="pt_BR">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/pt_BR/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/pt_BR -->
+       <dir name="ro">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/ro/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/ro -->
+       <dir name="ru">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/ru/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/ru -->
+       <dir name="sk">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/sk/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/sk -->
+       <dir name="sl">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/sl/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/sl -->
+       <dir name="sv">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/sv/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/sv -->
+       <dir name="tr">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/tr/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/tr -->
+       <dir name="uk">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/uk/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/uk -->
+       <dir name="zh_CN">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/zh_CN/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/zh_CN -->
+       <dir name="zh_TW">
+        <dir name="LC_MESSAGES">
+         <file name="Horde_Exception.mo" role="php" />
+         <file name="Horde_Exception.po" role="php" />
+        </dir> <!-- /vendor/horde/exception/locale/zh_TW/LC_MESSAGES -->
+       </dir> <!-- /vendor/horde/exception/locale/zh_TW -->
+       <file name="Horde_Exception.pot" role="php" />
+      </dir> <!-- /vendor/horde/exception/locale -->
+      <dir name="src">
+       <file name="HordeException.php" role="php" />
+       <file name="LastError.php" role="php" />
+       <file name="NotFound.php" role="php" />
+       <file name="Pear.php" role="php" />
+       <file name="PermissionDenied.php" role="php" />
+       <file name="Translation.php" role="php">
+        <tasks:replace from="@data_dir@" to="data_dir" type="pear-config" />
+       </file>
+       <file name="Wrapped.php" role="php" />
+      </dir> <!-- /vendor/horde/exception/src -->
+      <dir name="test">
+       <dir name="Stub">
+        <file name="PearError.php" role="php" />
+       </dir> <!-- /vendor/horde/exception/test/Stub -->
+       <file name="AllTests.php" role="php" />
+       <file name="bootstrap.php" role="php" />
+       <file name="ExceptionTest.php" role="php" />
+       <file name="UnnamespacedExceptionTest.php" role="php" />
+      </dir> <!-- /vendor/horde/exception/test -->
+      <file name=".gitignore" role="php" />
+      <file name=".horde.yml" role="php" />
+      <file name="composer.json" role="php" />
+      <file name="LICENSE" role="php" />
+      <file name="package.xml" role="php" />
+      <file name="phpunit.xml.dist" role="php" />
+     </dir> <!-- /vendor/horde/exception -->
+     <dir name="translation">
+      <dir name=".github">
+       <dir name="workflows">
+        <file name="ci.yml" role="php" />
+        <file name="phpdoc.yml" role="php" />
+        <file name="release.yml" role="php" />
+        <file name="update-composer-json.yml" role="php" />
+        <file name="update-satis.yml" role="php" />
+       </dir> <!-- /vendor/horde/translation/.github/workflows -->
+      </dir> <!-- /vendor/horde/translation/.github -->
+      <dir name="doc">
+       <dir name="Horde">
+        <dir name="Translation">
+         <file name="CHANGES" role="php" />
+        </dir> <!-- /vendor/horde/translation/doc/Horde/Translation -->
+       </dir> <!-- /vendor/horde/translation/doc/Horde -->
+      </dir> <!-- /vendor/horde/translation/doc -->
+      <dir name="lib">
+       <dir name="Horde">
+        <dir name="Translation">
+         <dir name="Handler">
+          <file name="Gettext.php" role="php" />
+         </dir> <!-- /vendor/horde/translation/lib/Horde/Translation/Handler -->
+         <file name="Autodetect.php" role="php" />
+         <file name="Exception.php" role="php" />
+         <file name="Handler.php" role="php" />
+        </dir> <!-- /vendor/horde/translation/lib/Horde/Translation -->
+        <file name="Translation.php" role="php" />
+       </dir> <!-- /vendor/horde/translation/lib/Horde -->
+      </dir> <!-- /vendor/horde/translation/lib -->
+      <dir name="src">
+       <file name="AbstractTranslation.php" role="php" />
+       <file name="Autodetect.php" role="php" />
+       <file name="GettextHandler.php" role="php" />
+       <file name="Handler.php" role="php" />
+       <file name="Translation.php" role="php" />
+       <file name="TranslationException.php" role="php" />
+      </dir> <!-- /vendor/horde/translation/src -->
+      <dir name="test">
+       <dir name="fixtures">
+        <dir name="composer">
+         <dir name="data">
+          <dir name="locale">
+           <dir name="de">
+            <dir name="LC_MESSAGES">
+             <file name="Horde_Translation_Composer.mo" role="php" />
+             <file name="Horde_Translation_Composer.po" role="php" />
+            </dir> <!-- /vendor/horde/translation/test/fixtures/composer/data/locale/de/LC_MESSAGES -->
+           </dir> <!-- /vendor/horde/translation/test/fixtures/composer/data/locale/de -->
+          </dir> <!-- /vendor/horde/translation/test/fixtures/composer/data/locale -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/composer/data -->
+         <dir name="Horde">
+          <dir name="Translation">
+           <dir name="Composer">
+            <file name="TestAutodetect.php" role="php" />
+           </dir> <!-- /vendor/horde/translation/test/fixtures/composer/Horde/Translation/Composer -->
+          </dir> <!-- /vendor/horde/translation/test/fixtures/composer/Horde/Translation -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/composer/Horde -->
+        </dir> <!-- /vendor/horde/translation/test/fixtures/composer -->
+        <dir name="locale">
+         <dir name="de">
+          <dir name="LC_MESSAGES">
+           <file name="Horde_Other.mo" role="php" />
+           <file name="Horde_Other.po" role="php" />
+           <file name="Horde_Translation.mo" role="php" />
+           <file name="Horde_Translation.po" role="php" />
+          </dir> <!-- /vendor/horde/translation/test/fixtures/locale/de/LC_MESSAGES -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/locale/de -->
+        </dir> <!-- /vendor/horde/translation/test/fixtures/locale -->
+        <dir name="pear">
+         <dir name="data">
+          <dir name="Horde_Translation_Pear">
+           <dir name="locale">
+            <dir name="de">
+             <dir name="LC_MESSAGES">
+              <file name="Horde_Translation_Pear.mo" role="php" />
+              <file name="Horde_Translation_Pear.po" role="php" />
+             </dir> <!-- /vendor/horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale/de/LC_MESSAGES -->
+            </dir> <!-- /vendor/horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale/de -->
+           </dir> <!-- /vendor/horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale -->
+          </dir> <!-- /vendor/horde/translation/test/fixtures/pear/data/Horde_Translation_Pear -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/pear/data -->
+         <dir name="php">
+          <dir name="Horde">
+           <dir name="Translation">
+            <dir name="Pear">
+             <file name="TestAutodetect.php" role="php" />
+            </dir> <!-- /vendor/horde/translation/test/fixtures/pear/php/Horde/Translation/Pear -->
+           </dir> <!-- /vendor/horde/translation/test/fixtures/pear/php/Horde/Translation -->
+          </dir> <!-- /vendor/horde/translation/test/fixtures/pear/php/Horde -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/pear/php -->
+        </dir> <!-- /vendor/horde/translation/test/fixtures/pear -->
+        <dir name="source">
+         <dir name="lib">
+          <dir name="Horde">
+           <dir name="Translation">
+            <dir name="Source">
+             <file name="TestAutodetect.php" role="php" />
+            </dir> <!-- /vendor/horde/translation/test/fixtures/source/lib/Horde/Translation/Source -->
+           </dir> <!-- /vendor/horde/translation/test/fixtures/source/lib/Horde/Translation -->
+          </dir> <!-- /vendor/horde/translation/test/fixtures/source/lib/Horde -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/source/lib -->
+         <dir name="locale">
+          <dir name="de">
+           <dir name="LC_MESSAGES">
+            <file name="Horde_Translation_Source.mo" role="php" />
+            <file name="Horde_Translation_Source.po" role="php" />
+           </dir> <!-- /vendor/horde/translation/test/fixtures/source/locale/de/LC_MESSAGES -->
+          </dir> <!-- /vendor/horde/translation/test/fixtures/source/locale/de -->
+         </dir> <!-- /vendor/horde/translation/test/fixtures/source/locale -->
+        </dir> <!-- /vendor/horde/translation/test/fixtures/source -->
+       </dir> <!-- /vendor/horde/translation/test/fixtures -->
+       <dir name="Helper">
+        <file name="TestWrapperA.php" role="php" />
+        <file name="TestWrapperB.php" role="php" />
+       </dir> <!-- /vendor/horde/translation/test/Helper -->
+       <file name="AllTests.php" role="php" />
+       <file name="AutodetectTest.php" role="php" />
+       <file name="bootstrap.php" role="php" />
+       <file name="GettextTest.php" role="php" />
+       <file name="TestBase.php" role="php" />
+       <file name="WrapperTest.php" role="php" />
+      </dir> <!-- /vendor/horde/translation/test -->
+      <file name=".gitignore" role="php" />
+      <file name=".horde.yml" role="php" />
+      <file name="composer.json" role="php" />
+      <file name="LICENSE" role="php" />
+      <file name="package.xml" role="php" />
+      <file name="phpunit.xml.dist" role="php" />
+     </dir> <!-- /vendor/horde/translation -->
+     <dir name="url">
+      <dir name=".github">
+       <dir name="workflows">
+        <file name="ci.yml" role="php" />
+        <file name="phpdoc.yml" role="php" />
+        <file name="update-satis.yml" role="php" />
+       </dir> <!-- /vendor/horde/url/.github/workflows -->
+      </dir> <!-- /vendor/horde/url/.github -->
+      <dir name="doc">
+       <dir name="Horde">
+        <dir name="Url">
+         <file name="CHANGES" role="php" />
+        </dir> <!-- /vendor/horde/url/doc/Horde/Url -->
+       </dir> <!-- /vendor/horde/url/doc/Horde -->
+      </dir> <!-- /vendor/horde/url/doc -->
+      <dir name="lib">
+       <dir name="Horde">
+        <dir name="Url">
+         <file name="Data.php" role="php" />
+         <file name="Exception.php" role="php" />
+        </dir> <!-- /vendor/horde/url/lib/Horde/Url -->
+        <file name="Url.php" role="php" />
+       </dir> <!-- /vendor/horde/url/lib/Horde -->
+      </dir> <!-- /vendor/horde/url/lib -->
+      <dir name="test">
+       <dir name="Horde">
+        <dir name="Url">
+         <file name="AddTest.php" role="php" />
+         <file name="AllTests.php" role="php" />
+         <file name="bootstrap.php" role="php" />
+         <file name="CallbackTest.php" role="php" />
+         <file name="ConstructorTest.php" role="php" />
+         <file name="LinkTest.php" role="php" />
+         <file name="RawTest.php" role="php" />
+         <file name="RedirectTest.php" role="php" />
+         <file name="RemoveTest.php" role="php" />
+         <file name="TostringTest.php" role="php" />
+         <file name="UrlDataTest.php" role="php" />
+        </dir> <!-- /vendor/horde/url/test/Horde/Url -->
+       </dir> <!-- /vendor/horde/url/test/Horde -->
+      </dir> <!-- /vendor/horde/url/test -->
+      <file name=".gitignore" role="php" />
+      <file name=".horde.yml" role="php" />
+      <file name=".travis.yml" role="php" />
+      <file name="composer.json" role="php" />
+      <file name="LICENSE" role="php" />
+      <file name="package.xml" role="php" />
+      <file name="phpunit.xml.dist" role="php" />
+     </dir> <!-- /vendor/horde/url -->
+     <dir name="util">
+      <dir name=".github">
+       <dir name="workflows">
+        <file name="ci.yml" role="php" />
+        <file name="phpdoc.yml" role="php" />
+        <file name="release.yml" role="php" />
+        <file name="update-satis.yml" role="php" />
+       </dir> <!-- /vendor/horde/util/.github/workflows -->
+      </dir> <!-- /vendor/horde/util/.github -->
+      <dir name="doc">
+       <dir name="Horde">
+        <dir name="Util">
+         <file name="CHANGES" role="php" />
+         <file name="UPGRADING.rst" role="php" />
+        </dir> <!-- /vendor/horde/util/doc/Horde/Util -->
+       </dir> <!-- /vendor/horde/util/doc/Horde -->
+      </dir> <!-- /vendor/horde/util/doc -->
+      <dir name="lib">
+       <dir name="Horde">
+        <dir name="Array">
+         <dir name="Sort">
+          <file name="Helper.php" role="php" />
+         </dir> <!-- /vendor/horde/util/lib/Horde/Array/Sort -->
+        </dir> <!-- /vendor/horde/util/lib/Horde/Array -->
+        <dir name="String">
+         <file name="Transliterate.php" role="php" />
+        </dir> <!-- /vendor/horde/util/lib/Horde/String -->
+        <file name="Array.php" role="php" />
+        <file name="Domhtml.php" role="php" />
+        <file name="String.php" role="php" />
+        <file name="Util.php" role="php" />
+        <file name="Variables.php" role="php" />
+       </dir> <!-- /vendor/horde/util/lib/Horde -->
+      </dir> <!-- /vendor/horde/util/lib -->
+      <dir name="src">
+       <file name="ArraySortHelper.php" role="php" />
+       <file name="ArrayUtils.php" role="php" />
+       <file name="CharacterSets.php" role="php" />
+       <file name="Domhtml.php" role="php" />
+       <file name="HordeString.php" role="php" />
+       <file name="Stringable.php" role="php" />
+       <file name="StringTransliterate.php" role="php" />
+       <file name="Util.php" role="php" />
+       <file name="Variables.php" role="php" />
+      </dir> <!-- /vendor/horde/util/src -->
+      <dir name="test">
+       <dir name="fixtures">
+        <file name="domhtml_test.html" role="php" />
+       </dir> <!-- /vendor/horde/util/test/fixtures -->
+       <dir name="Mock">
+        <file name="Transliterate.php" role="php" />
+       </dir> <!-- /vendor/horde/util/test/Mock -->
+       <dir name="Unnamespaced">
+        <file name="ArrayTest.php" role="php" />
+        <file name="DomhtmlTest.php" role="php" />
+        <file name="StringTest.php" role="php" />
+        <file name="TransliterateTest.php" role="php" />
+        <file name="UtilTest.php" role="php" />
+        <file name="VariablesTest.php" role="php" />
+       </dir> <!-- /vendor/horde/util/test/Unnamespaced -->
+       <file name="AllTests.php" role="php" />
+       <file name="ArrayUtilsTest.php" role="php" />
+       <file name="bootstrap.php" role="php" />
+       <file name="DomhtmlTest.php" role="php" />
+       <file name="HordeStringTest.php" role="php" />
+       <file name="TransliterateTest.php" role="php" />
+       <file name="UtilTest.php" role="php" />
+       <file name="VariablesTest.php" role="php" />
+      </dir> <!-- /vendor/horde/util/test -->
+      <file name=".gitignore" role="php" />
+      <file name=".horde.yml" role="php" />
+      <file name=".travis.yml" role="php" />
+      <file name="composer.json" role="php" />
+      <file name="LICENSE" role="php" />
+      <file name="package.xml" role="php" />
+      <file name="phpunit.xml.dist" role="php" />
+     </dir> <!-- /vendor/horde/util -->
+    </dir> <!-- /vendor/horde -->
+    <file name="autoload.php" role="php" />
+   </dir> <!-- /vendor -->
    <file name="LICENSE" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>
   <required>
    <php>
-    <min>7.0.0</min>
-    <max>8.0.0alpha1</max>
-    <exclude>8.0.0alpha1</exclude>
+    <min>7.4.0</min>
+    <max>9.0.0alpha1</max>
+    <exclude>9.0.0alpha1</exclude>
    </php>
    <pearinstaller>
     <min>1.7.0</min>
@@ -83,6 +677,11 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="workflows/ci.yml" name=".github/workflows/ci.yml" />
+   <install as="workflows/phpdoc.yml" name=".github/workflows/phpdoc.yml" />
+   <install as="workflows/release.yml" name=".github/workflows/release.yml" />
+   <install as="workflows/update-composer-json.yml" name=".github/workflows/update-composer-json.yml" />
+   <install as="workflows/update-satis.yml" name=".github/workflows/update-satis.yml" />
    <install as="CHANGES" name="doc/Horde/Tree/CHANGES" />
    <install as="UPGRADING.rst" name="doc/Horde/Tree/UPGRADING.rst" />
    <install as="Horde/Tree.php" name="lib/Horde/Tree.php" />
@@ -94,30 +693,249 @@
    <install as="Horde/Tree/Renderer/Select.php" name="lib/Horde/Tree/Renderer/Select.php" />
    <install as="Horde/Tree/Renderer/Simplehtml.php" name="lib/Horde/Tree/Renderer/Simplehtml.php" />
    <install as="LICENSE" name="LICENSE" />
+   <install as="autoload.php" name="vendor/autoload.php" />
+   <install as="composer/autoload_classmap.php" name="vendor/composer/autoload_classmap.php" />
+   <install as="composer/autoload_namespaces.php" name="vendor/composer/autoload_namespaces.php" />
+   <install as="composer/autoload_psr4.php" name="vendor/composer/autoload_psr4.php" />
+   <install as="composer/autoload_real.php" name="vendor/composer/autoload_real.php" />
+   <install as="composer/autoload_static.php" name="vendor/composer/autoload_static.php" />
+   <install as="composer/ClassLoader.php" name="vendor/composer/ClassLoader.php" />
+   <install as="composer/installed.json" name="vendor/composer/installed.json" />
+   <install as="composer/installed.php" name="vendor/composer/installed.php" />
+   <install as="composer/InstalledVersions.php" name="vendor/composer/InstalledVersions.php" />
+   <install as="composer/LICENSE" name="vendor/composer/LICENSE" />
+   <install as="composer/platform_check.php" name="vendor/composer/platform_check.php" />
+   <install as="horde/exception/.github/workflows/ci.yml" name="vendor/horde/exception/.github/workflows/ci.yml" />
+   <install as="horde/exception/.github/workflows/phpdoc.yml" name="vendor/horde/exception/.github/workflows/phpdoc.yml" />
+   <install as="horde/exception/.github/workflows/update-satis.yml" name="vendor/horde/exception/.github/workflows/update-satis.yml" />
+   <install as="horde/exception/.gitignore" name="vendor/horde/exception/.gitignore" />
+   <install as="horde/exception/.horde.yml" name="vendor/horde/exception/.horde.yml" />
+   <install as="horde/exception/composer.json" name="vendor/horde/exception/composer.json" />
+   <install as="horde/exception/doc/Horde/Exception/CHANGES" name="vendor/horde/exception/doc/Horde/Exception/CHANGES" />
+   <install as="horde/exception/lib/Horde/Exception.php" name="vendor/horde/exception/lib/Horde/Exception.php" />
+   <install as="horde/exception/lib/Horde/Exception/LastError.php" name="vendor/horde/exception/lib/Horde/Exception/LastError.php" />
+   <install as="horde/exception/lib/Horde/Exception/NotFound.php" name="vendor/horde/exception/lib/Horde/Exception/NotFound.php" />
+   <install as="horde/exception/lib/Horde/Exception/Pear.php" name="vendor/horde/exception/lib/Horde/Exception/Pear.php" />
+   <install as="horde/exception/lib/Horde/Exception/PermissionDenied.php" name="vendor/horde/exception/lib/Horde/Exception/PermissionDenied.php" />
+   <install as="horde/exception/lib/Horde/Exception/Translation.php" name="vendor/horde/exception/lib/Horde/Exception/Translation.php" />
+   <install as="horde/exception/lib/Horde/Exception/Wrapped.php" name="vendor/horde/exception/lib/Horde/Exception/Wrapped.php" />
+   <install as="horde/exception/LICENSE" name="vendor/horde/exception/LICENSE" />
+   <install as="horde/exception/locale/ar/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/ar/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/ar/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/ar/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/bg/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/bg/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/bg/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/bg/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/bs/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/bs/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/bs/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/bs/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/ca/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/ca/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/ca/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/ca/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/cs/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/cs/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/cs/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/cs/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/da/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/da/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/da/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/da/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/de/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/de/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/de/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/de/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/el/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/el/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/el/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/el/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/es/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/es/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/es/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/es/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/et/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/et/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/et/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/et/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/eu/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/eu/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/eu/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/eu/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/fa/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/fa/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/fa/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/fa/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/fi/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/fi/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/fi/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/fi/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/fr/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/fr/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/fr/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/fr/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/gl/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/gl/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/gl/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/gl/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/he/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/he/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/he/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/he/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/Horde_Exception.pot" name="vendor/horde/exception/locale/Horde_Exception.pot" />
+   <install as="horde/exception/locale/hr/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/hr/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/hr/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/hr/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/hu/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/hu/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/hu/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/hu/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/id/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/id/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/id/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/id/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/is/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/is/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/is/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/is/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/it/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/it/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/it/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/it/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/ja/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/ja/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/ja/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/ja/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/km/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/km/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/km/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/km/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/ko/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/ko/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/ko/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/ko/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/lt/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/lt/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/lt/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/lt/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/lv/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/lv/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/lv/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/lv/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/mk/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/mk/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/mk/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/mk/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/nb/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/nb/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/nb/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/nb/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/nl/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/nl/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/nl/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/nl/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/nn/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/nn/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/nn/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/nn/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/pl/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/pl/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/pl/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/pl/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/pt/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/pt/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/pt/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/pt/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/pt_BR/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/pt_BR/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/pt_BR/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/pt_BR/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/ro/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/ro/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/ro/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/ro/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/ru/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/ru/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/ru/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/ru/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/sk/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/sk/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/sk/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/sk/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/sl/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/sl/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/sl/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/sl/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/sv/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/sv/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/sv/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/sv/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/tr/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/tr/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/tr/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/tr/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/uk/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/uk/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/uk/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/uk/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/zh_CN/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/zh_CN/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/zh_CN/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/zh_CN/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/locale/zh_TW/LC_MESSAGES/Horde_Exception.mo" name="vendor/horde/exception/locale/zh_TW/LC_MESSAGES/Horde_Exception.mo" />
+   <install as="horde/exception/locale/zh_TW/LC_MESSAGES/Horde_Exception.po" name="vendor/horde/exception/locale/zh_TW/LC_MESSAGES/Horde_Exception.po" />
+   <install as="horde/exception/package.xml" name="vendor/horde/exception/package.xml" />
+   <install as="horde/exception/phpunit.xml.dist" name="vendor/horde/exception/phpunit.xml.dist" />
+   <install as="horde/exception/src/HordeException.php" name="vendor/horde/exception/src/HordeException.php" />
+   <install as="horde/exception/src/LastError.php" name="vendor/horde/exception/src/LastError.php" />
+   <install as="horde/exception/src/NotFound.php" name="vendor/horde/exception/src/NotFound.php" />
+   <install as="horde/exception/src/Pear.php" name="vendor/horde/exception/src/Pear.php" />
+   <install as="horde/exception/src/PermissionDenied.php" name="vendor/horde/exception/src/PermissionDenied.php" />
+   <install as="horde/exception/src/Translation.php" name="vendor/horde/exception/src/Translation.php" />
+   <install as="horde/exception/src/Wrapped.php" name="vendor/horde/exception/src/Wrapped.php" />
+   <install as="horde/exception/test/AllTests.php" name="vendor/horde/exception/test/AllTests.php" />
+   <install as="horde/exception/test/bootstrap.php" name="vendor/horde/exception/test/bootstrap.php" />
+   <install as="horde/exception/test/ExceptionTest.php" name="vendor/horde/exception/test/ExceptionTest.php" />
+   <install as="horde/exception/test/Stub/PearError.php" name="vendor/horde/exception/test/Stub/PearError.php" />
+   <install as="horde/exception/test/UnnamespacedExceptionTest.php" name="vendor/horde/exception/test/UnnamespacedExceptionTest.php" />
+   <install as="horde/translation/.github/workflows/ci.yml" name="vendor/horde/translation/.github/workflows/ci.yml" />
+   <install as="horde/translation/.github/workflows/phpdoc.yml" name="vendor/horde/translation/.github/workflows/phpdoc.yml" />
+   <install as="horde/translation/.github/workflows/release.yml" name="vendor/horde/translation/.github/workflows/release.yml" />
+   <install as="horde/translation/.github/workflows/update-composer-json.yml" name="vendor/horde/translation/.github/workflows/update-composer-json.yml" />
+   <install as="horde/translation/.github/workflows/update-satis.yml" name="vendor/horde/translation/.github/workflows/update-satis.yml" />
+   <install as="horde/translation/.gitignore" name="vendor/horde/translation/.gitignore" />
+   <install as="horde/translation/.horde.yml" name="vendor/horde/translation/.horde.yml" />
+   <install as="horde/translation/composer.json" name="vendor/horde/translation/composer.json" />
+   <install as="horde/translation/doc/Horde/Translation/CHANGES" name="vendor/horde/translation/doc/Horde/Translation/CHANGES" />
+   <install as="horde/translation/lib/Horde/Translation.php" name="vendor/horde/translation/lib/Horde/Translation.php" />
+   <install as="horde/translation/lib/Horde/Translation/Autodetect.php" name="vendor/horde/translation/lib/Horde/Translation/Autodetect.php" />
+   <install as="horde/translation/lib/Horde/Translation/Exception.php" name="vendor/horde/translation/lib/Horde/Translation/Exception.php" />
+   <install as="horde/translation/lib/Horde/Translation/Handler.php" name="vendor/horde/translation/lib/Horde/Translation/Handler.php" />
+   <install as="horde/translation/lib/Horde/Translation/Handler/Gettext.php" name="vendor/horde/translation/lib/Horde/Translation/Handler/Gettext.php" />
+   <install as="horde/translation/LICENSE" name="vendor/horde/translation/LICENSE" />
+   <install as="horde/translation/package.xml" name="vendor/horde/translation/package.xml" />
+   <install as="horde/translation/phpunit.xml.dist" name="vendor/horde/translation/phpunit.xml.dist" />
+   <install as="horde/translation/src/AbstractTranslation.php" name="vendor/horde/translation/src/AbstractTranslation.php" />
+   <install as="horde/translation/src/Autodetect.php" name="vendor/horde/translation/src/Autodetect.php" />
+   <install as="horde/translation/src/GettextHandler.php" name="vendor/horde/translation/src/GettextHandler.php" />
+   <install as="horde/translation/src/Handler.php" name="vendor/horde/translation/src/Handler.php" />
+   <install as="horde/translation/src/Translation.php" name="vendor/horde/translation/src/Translation.php" />
+   <install as="horde/translation/src/TranslationException.php" name="vendor/horde/translation/src/TranslationException.php" />
+   <install as="horde/translation/test/AllTests.php" name="vendor/horde/translation/test/AllTests.php" />
+   <install as="horde/translation/test/AutodetectTest.php" name="vendor/horde/translation/test/AutodetectTest.php" />
+   <install as="horde/translation/test/bootstrap.php" name="vendor/horde/translation/test/bootstrap.php" />
+   <install as="horde/translation/test/fixtures/composer/data/locale/de/LC_MESSAGES/Horde_Translation_Composer.mo" name="vendor/horde/translation/test/fixtures/composer/data/locale/de/LC_MESSAGES/Horde_Translation_Composer.mo" />
+   <install as="horde/translation/test/fixtures/composer/data/locale/de/LC_MESSAGES/Horde_Translation_Composer.po" name="vendor/horde/translation/test/fixtures/composer/data/locale/de/LC_MESSAGES/Horde_Translation_Composer.po" />
+   <install as="horde/translation/test/fixtures/composer/Horde/Translation/Composer/TestAutodetect.php" name="vendor/horde/translation/test/fixtures/composer/Horde/Translation/Composer/TestAutodetect.php" />
+   <install as="horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Other.mo" name="vendor/horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Other.mo" />
+   <install as="horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Other.po" name="vendor/horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Other.po" />
+   <install as="horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Translation.mo" name="vendor/horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Translation.mo" />
+   <install as="horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Translation.po" name="vendor/horde/translation/test/fixtures/locale/de/LC_MESSAGES/Horde_Translation.po" />
+   <install as="horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale/de/LC_MESSAGES/Horde_Translation_Pear.mo" name="vendor/horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale/de/LC_MESSAGES/Horde_Translation_Pear.mo" />
+   <install as="horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale/de/LC_MESSAGES/Horde_Translation_Pear.po" name="vendor/horde/translation/test/fixtures/pear/data/Horde_Translation_Pear/locale/de/LC_MESSAGES/Horde_Translation_Pear.po" />
+   <install as="horde/translation/test/fixtures/pear/php/Horde/Translation/Pear/TestAutodetect.php" name="vendor/horde/translation/test/fixtures/pear/php/Horde/Translation/Pear/TestAutodetect.php" />
+   <install as="horde/translation/test/fixtures/source/lib/Horde/Translation/Source/TestAutodetect.php" name="vendor/horde/translation/test/fixtures/source/lib/Horde/Translation/Source/TestAutodetect.php" />
+   <install as="horde/translation/test/fixtures/source/locale/de/LC_MESSAGES/Horde_Translation_Source.mo" name="vendor/horde/translation/test/fixtures/source/locale/de/LC_MESSAGES/Horde_Translation_Source.mo" />
+   <install as="horde/translation/test/fixtures/source/locale/de/LC_MESSAGES/Horde_Translation_Source.po" name="vendor/horde/translation/test/fixtures/source/locale/de/LC_MESSAGES/Horde_Translation_Source.po" />
+   <install as="horde/translation/test/GettextTest.php" name="vendor/horde/translation/test/GettextTest.php" />
+   <install as="horde/translation/test/Helper/TestWrapperA.php" name="vendor/horde/translation/test/Helper/TestWrapperA.php" />
+   <install as="horde/translation/test/Helper/TestWrapperB.php" name="vendor/horde/translation/test/Helper/TestWrapperB.php" />
+   <install as="horde/translation/test/TestBase.php" name="vendor/horde/translation/test/TestBase.php" />
+   <install as="horde/translation/test/WrapperTest.php" name="vendor/horde/translation/test/WrapperTest.php" />
+   <install as="horde/url/.github/workflows/ci.yml" name="vendor/horde/url/.github/workflows/ci.yml" />
+   <install as="horde/url/.github/workflows/phpdoc.yml" name="vendor/horde/url/.github/workflows/phpdoc.yml" />
+   <install as="horde/url/.github/workflows/update-satis.yml" name="vendor/horde/url/.github/workflows/update-satis.yml" />
+   <install as="horde/url/.gitignore" name="vendor/horde/url/.gitignore" />
+   <install as="horde/url/.horde.yml" name="vendor/horde/url/.horde.yml" />
+   <install as="horde/url/.travis.yml" name="vendor/horde/url/.travis.yml" />
+   <install as="horde/url/composer.json" name="vendor/horde/url/composer.json" />
+   <install as="horde/url/doc/Horde/Url/CHANGES" name="vendor/horde/url/doc/Horde/Url/CHANGES" />
+   <install as="horde/url/lib/Horde/Url.php" name="vendor/horde/url/lib/Horde/Url.php" />
+   <install as="horde/url/lib/Horde/Url/Data.php" name="vendor/horde/url/lib/Horde/Url/Data.php" />
+   <install as="horde/url/lib/Horde/Url/Exception.php" name="vendor/horde/url/lib/Horde/Url/Exception.php" />
+   <install as="horde/url/LICENSE" name="vendor/horde/url/LICENSE" />
+   <install as="horde/url/package.xml" name="vendor/horde/url/package.xml" />
+   <install as="horde/url/phpunit.xml.dist" name="vendor/horde/url/phpunit.xml.dist" />
+   <install as="horde/url/test/Horde/Url/AddTest.php" name="vendor/horde/url/test/Horde/Url/AddTest.php" />
+   <install as="horde/url/test/Horde/Url/AllTests.php" name="vendor/horde/url/test/Horde/Url/AllTests.php" />
+   <install as="horde/url/test/Horde/Url/bootstrap.php" name="vendor/horde/url/test/Horde/Url/bootstrap.php" />
+   <install as="horde/url/test/Horde/Url/CallbackTest.php" name="vendor/horde/url/test/Horde/Url/CallbackTest.php" />
+   <install as="horde/url/test/Horde/Url/ConstructorTest.php" name="vendor/horde/url/test/Horde/Url/ConstructorTest.php" />
+   <install as="horde/url/test/Horde/Url/LinkTest.php" name="vendor/horde/url/test/Horde/Url/LinkTest.php" />
+   <install as="horde/url/test/Horde/Url/RawTest.php" name="vendor/horde/url/test/Horde/Url/RawTest.php" />
+   <install as="horde/url/test/Horde/Url/RedirectTest.php" name="vendor/horde/url/test/Horde/Url/RedirectTest.php" />
+   <install as="horde/url/test/Horde/Url/RemoveTest.php" name="vendor/horde/url/test/Horde/Url/RemoveTest.php" />
+   <install as="horde/url/test/Horde/Url/TostringTest.php" name="vendor/horde/url/test/Horde/Url/TostringTest.php" />
+   <install as="horde/url/test/Horde/Url/UrlDataTest.php" name="vendor/horde/url/test/Horde/Url/UrlDataTest.php" />
+   <install as="horde/util/.github/workflows/ci.yml" name="vendor/horde/util/.github/workflows/ci.yml" />
+   <install as="horde/util/.github/workflows/phpdoc.yml" name="vendor/horde/util/.github/workflows/phpdoc.yml" />
+   <install as="horde/util/.github/workflows/release.yml" name="vendor/horde/util/.github/workflows/release.yml" />
+   <install as="horde/util/.github/workflows/update-satis.yml" name="vendor/horde/util/.github/workflows/update-satis.yml" />
+   <install as="horde/util/.gitignore" name="vendor/horde/util/.gitignore" />
+   <install as="horde/util/.horde.yml" name="vendor/horde/util/.horde.yml" />
+   <install as="horde/util/.travis.yml" name="vendor/horde/util/.travis.yml" />
+   <install as="horde/util/composer.json" name="vendor/horde/util/composer.json" />
+   <install as="horde/util/doc/Horde/Util/CHANGES" name="vendor/horde/util/doc/Horde/Util/CHANGES" />
+   <install as="horde/util/doc/Horde/Util/UPGRADING.rst" name="vendor/horde/util/doc/Horde/Util/UPGRADING.rst" />
+   <install as="horde/util/lib/Horde/Array.php" name="vendor/horde/util/lib/Horde/Array.php" />
+   <install as="horde/util/lib/Horde/Array/Sort/Helper.php" name="vendor/horde/util/lib/Horde/Array/Sort/Helper.php" />
+   <install as="horde/util/lib/Horde/Domhtml.php" name="vendor/horde/util/lib/Horde/Domhtml.php" />
+   <install as="horde/util/lib/Horde/String.php" name="vendor/horde/util/lib/Horde/String.php" />
+   <install as="horde/util/lib/Horde/String/Transliterate.php" name="vendor/horde/util/lib/Horde/String/Transliterate.php" />
+   <install as="horde/util/lib/Horde/Util.php" name="vendor/horde/util/lib/Horde/Util.php" />
+   <install as="horde/util/lib/Horde/Variables.php" name="vendor/horde/util/lib/Horde/Variables.php" />
+   <install as="horde/util/LICENSE" name="vendor/horde/util/LICENSE" />
+   <install as="horde/util/package.xml" name="vendor/horde/util/package.xml" />
+   <install as="horde/util/phpunit.xml.dist" name="vendor/horde/util/phpunit.xml.dist" />
+   <install as="horde/util/src/ArraySortHelper.php" name="vendor/horde/util/src/ArraySortHelper.php" />
+   <install as="horde/util/src/ArrayUtils.php" name="vendor/horde/util/src/ArrayUtils.php" />
+   <install as="horde/util/src/CharacterSets.php" name="vendor/horde/util/src/CharacterSets.php" />
+   <install as="horde/util/src/Domhtml.php" name="vendor/horde/util/src/Domhtml.php" />
+   <install as="horde/util/src/HordeString.php" name="vendor/horde/util/src/HordeString.php" />
+   <install as="horde/util/src/Stringable.php" name="vendor/horde/util/src/Stringable.php" />
+   <install as="horde/util/src/StringTransliterate.php" name="vendor/horde/util/src/StringTransliterate.php" />
+   <install as="horde/util/src/Util.php" name="vendor/horde/util/src/Util.php" />
+   <install as="horde/util/src/Variables.php" name="vendor/horde/util/src/Variables.php" />
+   <install as="horde/util/test/AllTests.php" name="vendor/horde/util/test/AllTests.php" />
+   <install as="horde/util/test/ArrayUtilsTest.php" name="vendor/horde/util/test/ArrayUtilsTest.php" />
+   <install as="horde/util/test/bootstrap.php" name="vendor/horde/util/test/bootstrap.php" />
+   <install as="horde/util/test/DomhtmlTest.php" name="vendor/horde/util/test/DomhtmlTest.php" />
+   <install as="horde/util/test/fixtures/domhtml_test.html" name="vendor/horde/util/test/fixtures/domhtml_test.html" />
+   <install as="horde/util/test/HordeStringTest.php" name="vendor/horde/util/test/HordeStringTest.php" />
+   <install as="horde/util/test/Mock/Transliterate.php" name="vendor/horde/util/test/Mock/Transliterate.php" />
+   <install as="horde/util/test/TransliterateTest.php" name="vendor/horde/util/test/TransliterateTest.php" />
+   <install as="horde/util/test/Unnamespaced/ArrayTest.php" name="vendor/horde/util/test/Unnamespaced/ArrayTest.php" />
+   <install as="horde/util/test/Unnamespaced/DomhtmlTest.php" name="vendor/horde/util/test/Unnamespaced/DomhtmlTest.php" />
+   <install as="horde/util/test/Unnamespaced/StringTest.php" name="vendor/horde/util/test/Unnamespaced/StringTest.php" />
+   <install as="horde/util/test/Unnamespaced/TransliterateTest.php" name="vendor/horde/util/test/Unnamespaced/TransliterateTest.php" />
+   <install as="horde/util/test/Unnamespaced/UtilTest.php" name="vendor/horde/util/test/Unnamespaced/UtilTest.php" />
+   <install as="horde/util/test/Unnamespaced/VariablesTest.php" name="vendor/horde/util/test/Unnamespaced/VariablesTest.php" />
+   <install as="horde/util/test/UtilTest.php" name="vendor/horde/util/test/UtilTest.php" />
+   <install as="horde/util/test/VariablesTest.php" name="vendor/horde/util/test/VariablesTest.php" />
   </filelist>
  </phprelease>
  <changelog>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
   <release>
    <version>
     <release>0.0.1</release>
@@ -452,9 +1270,10 @@
     <api>alpha</api>
    </stability>
    <date>2021-03-13</date>
-   <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
+   <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1-only</license>
    <notes>
-* 
+* [rla] PHPStan Level 5 compliance. Cleaned up phpdoc and missing properties.
+* |+
    </notes>
   </release>
  </changelog>
