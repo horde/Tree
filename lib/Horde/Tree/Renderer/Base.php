@@ -133,7 +133,7 @@ abstract class Horde_Tree_Renderer_Base
      * Should be overwritten by a sub-class if it doesn't implement
      * its own getTree() method.
      *
-     * @param string $node_id  The Node ID.
+     * @param string $id  The Node ID.
      *
      * @return string  The tree rendering.
      */
@@ -156,7 +156,7 @@ abstract class Horde_Tree_Renderer_Base
     /**
      * Sets an option.
      *
-     * @param mixed $option  The option name -or- an array of option
+     * @param string|array $options  The option name -or- an array of option
      *                       name/value pairs. See constructor for available
      *                       options.
      * @param mixed $value   The option's value.

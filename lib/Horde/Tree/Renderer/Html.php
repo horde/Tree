@@ -48,6 +48,13 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
     protected $_altCount = 0;
 
     /**
+     * Unsure if using this variable is actually a mistake and _nodes should be used instead.
+     *
+     * @var array
+     */
+    protected $_root_nodes = [];
+
+    /**
      * Images array.
      *
      * @var array
@@ -73,7 +80,7 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
     /**
      * Constructor.
      *
-     * @param string $name   The name of this tree instance.
+     * @param Horde_Tree $tree   The name of this tree instance.
      * @param array $params  Additional parameters:
      * <pre>
      * alternate - (boolean) Alternate shading in the table?
@@ -92,13 +99,13 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
      *             DEFAULT: false
      * </pre>
      */
-    public function __construct($name, array $params = array())
+    public function __construct($tree, array $params = array())
     {
         $params = array_merge(array(
             'lines' => true
         ), $params);
 
-        parent::__construct($name, $params);
+        parent::__construct($tree, $params);
     }
 
     /**

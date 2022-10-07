@@ -29,6 +29,7 @@ class Horde_Tree implements Countable
      * @var string
      */
     public $instance;
+    protected $_sortCriteria;
 
     /**
      * Callbacks used to store session data.

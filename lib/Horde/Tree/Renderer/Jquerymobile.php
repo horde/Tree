@@ -40,10 +40,11 @@ class Horde_Tree_Renderer_Jquerymobile extends Horde_Tree_Renderer_Base
      * Recursive function to walk through the tree array and build the output.
      *
      * @param string $node_id  The Node ID.
+     * @param bool   $special  Optional <li> element for special nodes
      *
      * @return string  The tree rendering.
      */
-    protected function _buildTree($node_id, $special)
+    protected function _buildTree($node_id, $special = false)
     {
         $node = $this->_nodes[$node_id];
         $output = '';
