@@ -263,7 +263,7 @@ class Horde_Tree implements Countable
 
     /* Countable methods. */
 
-    public function count()
+    public function count(): int
     {
         return count($this->_nodes);
     }
