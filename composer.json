@@ -45,7 +45,11 @@
             "Horde_Tree": "lib/"
         }
     },
-    "autoload-dev": {},
+    "autoload-dev": {
+        "psr-4": {
+            "Horde\\Tree\\Test\\": "test/"
+        }
+    },
     "config": {
         "allow-plugins": {}
     },
