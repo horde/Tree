@@ -1,0 +1,271 @@
+/**
+ * Example stylesheet for Horde\Tree\Renderer\ResponsiveRenderer.
+ *
+ * This file demonstrates how to style the semantic HTML5 output produced
+ * by the ResponsiveRenderer. It is NOT a dependency — the renderer emits
+ * zero inline styles. Copy, adapt, or replace this file to match your
+ * application's design system.
+ *
+ * The renderer is @unstable — class names and markup may change between
+ * releases. Pin to a specific version if you rely on these selectors.
+ *
+ * Browser support: modern browsers with <details>/<summary> support
+ * (Chrome 12+, Firefox 49+, Safari 6+, Edge 79+).
+ *
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
+
+/* ───── Custom properties ───── */
+
+:root {
+    --horde-tree-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --horde-tree-font-size: 0.9375rem;
+    --horde-tree-line-height: 1.5;
+
+    --horde-tree-indent: 1.25rem;
+    --horde-tree-icon-size: 1.25rem;
+    --horde-tree-row-min-height: 2.75rem;
+    --horde-tree-row-padding-x: 0.5rem;
+    --horde-tree-row-padding-y: 0.375rem;
+    --horde-tree-content-gap: 0.5rem;
+    --horde-tree-border-radius: 0.375rem;
+
+    --horde-tree-color: #1a1a2e;
+    --horde-tree-bg: #ffffff;
+    --horde-tree-hover-bg: #f0f4f8;
+    --horde-tree-active-bg: #e2e8f0;
+    --horde-tree-focus-ring: #3b82f6;
+    --horde-tree-link-color: #2563eb;
+    --horde-tree-link-hover-color: #1d4ed8;
+    --horde-tree-border-color: #e2e8f0;
+
+    --horde-tree-header-bg: #f8fafc;
+    --horde-tree-header-color: #475569;
+    --horde-tree-header-font-weight: 600;
+
+    --horde-tree-marker-color: #64748b;
+    --horde-tree-marker-size: 0.5rem;
+    --horde-tree-transition-duration: 200ms;
+
+    --horde-tree-alt-bg: rgba(0, 0, 0, 0.02);
+}
+
+/* ───── Dark mode ───── */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --horde-tree-color: #e2e8f0;
+        --horde-tree-bg: #0f172a;
+        --horde-tree-hover-bg: #1e293b;
+        --horde-tree-active-bg: #334155;
+        --horde-tree-focus-ring: #60a5fa;
+        --horde-tree-link-color: #93c5fd;
+        --horde-tree-link-hover-color: #bfdbfe;
+        --horde-tree-border-color: #334155;
+        --horde-tree-header-bg: #1e293b;
+        --horde-tree-header-color: #94a3b8;
+        --horde-tree-marker-color: #94a3b8;
+        --horde-tree-alt-bg: rgba(255, 255, 255, 0.03);
+    }
+}
+
+/* ───── Root container ───── */
+
+.horde-tree {
+    font-family: var(--horde-tree-font-family);
+    font-size: var(--horde-tree-font-size);
+    line-height: var(--horde-tree-line-height);
+    color: var(--horde-tree-color);
+    background: var(--horde-tree-bg);
+}
+
+/* ───── Lists ───── */
+
+.horde-tree__list {
+    list-style: none;
+    margin: 0;
+    padding-left: var(--horde-tree-indent);
+}
+
+/* Root-level list has no indent */
+.horde-tree > .horde-tree__list {
+    padding-left: 0;
+}
+
+/* ───── Items (tree nodes) ───── */
+
+.horde-tree__item {
+    min-height: var(--horde-tree-row-min-height);
+    border-radius: var(--horde-tree-border-radius);
+}
+
+/* ───── Alternate row striping (CSS-driven) ───── */
+
+.horde-tree--alternate > .horde-tree__list > .horde-tree__item:nth-of-type(even) {
+    background-color: var(--horde-tree-alt-bg);
+}
+
+/* ───── Content wrapper (icon + label + extras) ───── */
+
+.horde-tree__content {
+    display: flex;
+    align-items: center;
+    gap: var(--horde-tree-content-gap);
+    min-height: var(--horde-tree-row-min-height);
+    padding: var(--horde-tree-row-padding-y) var(--horde-tree-row-padding-x);
+}
+
+.horde-tree__content:hover {
+    background-color: var(--horde-tree-hover-bg);
+    border-radius: var(--horde-tree-border-radius);
+}
+
+/* ───── details/summary (expand/collapse) ───── */
+
+.horde-tree__toggle {
+    border: none;
+}
+
+.horde-tree__summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Remove default marker in WebKit/Blink */
+.horde-tree__summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom disclosure triangle */
+.horde-tree__summary::before {
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    width: var(--horde-tree-marker-size);
+    height: var(--horde-tree-marker-size);
+    margin-inline-end: var(--horde-tree-content-gap);
+    border-style: solid;
+    border-width: var(--horde-tree-marker-size) 0 var(--horde-tree-marker-size) calc(var(--horde-tree-marker-size) * 1.5);
+    border-color: transparent transparent transparent var(--horde-tree-marker-color);
+    transition: transform var(--horde-tree-transition-duration) ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .horde-tree__summary::before {
+        transition: none;
+    }
+}
+
+.horde-tree__toggle[open] > .horde-tree__summary::before {
+    transform: rotate(90deg);
+}
+
+/* Focus styles for keyboard navigation */
+.horde-tree__summary:focus-visible {
+    outline: 2px solid var(--horde-tree-focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--horde-tree-border-radius);
+}
+
+/* ───── Icons ───── */
+
+.horde-tree__icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: var(--horde-tree-icon-size);
+    height: var(--horde-tree-icon-size);
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* ───── Labels ───── */
+
+a.horde-tree__label {
+    color: var(--horde-tree-link-color);
+    text-decoration: none;
+}
+
+a.horde-tree__label:hover {
+    color: var(--horde-tree-link-hover-color);
+    text-decoration: underline;
+}
+
+a.horde-tree__label:focus-visible {
+    outline: 2px solid var(--horde-tree-focus-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+span.horde-tree__label {
+    color: inherit;
+}
+
+/* ───── Extra columns ───── */
+
+.horde-tree__extra-left,
+.horde-tree__extra-right {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.horde-tree__extra-right {
+    margin-inline-start: auto;
+}
+
+/* ───── Header row ───── */
+
+.horde-tree__header {
+    display: flex;
+    align-items: center;
+    gap: var(--horde-tree-content-gap);
+    min-height: var(--horde-tree-row-min-height);
+    padding: var(--horde-tree-row-padding-y) var(--horde-tree-row-padding-x);
+    background: var(--horde-tree-header-bg);
+    color: var(--horde-tree-header-color);
+    font-weight: var(--horde-tree-header-font-weight);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    border-bottom: 1px solid var(--horde-tree-border-color);
+    list-style: none;
+}
+
+.horde-tree__header-cell {
+    flex: 1;
+}
+
+/* ───── Responsive: compact on small screens ───── */
+
+@media (max-width: 600px) {
+    :root {
+        --horde-tree-indent: 0.75rem;
+        --horde-tree-icon-size: 1rem;
+        --horde-tree-font-size: 0.875rem;
+        --horde-tree-row-min-height: 2.75rem;
+        --horde-tree-content-gap: 0.375rem;
+    }
+
+    /* Hide extra columns on narrow screens */
+    .horde-tree__extra-left,
+    .horde-tree__extra-right {
+        display: none;
+    }
+
+    .horde-tree__header {
+        display: none;
+    }
+}
+
+/* ───── Responsive: comfortable on wide screens ───── */
+
+@media (min-width: 1024px) {
+    :root {
+        --horde-tree-indent: 1.5rem;
+        --horde-tree-font-size: 0.9375rem;
+        --horde-tree-row-min-height: 2.5rem;
+    }
+}
