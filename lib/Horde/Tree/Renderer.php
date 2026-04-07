@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2012-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -23,8 +24,8 @@
 class Horde_Tree_Renderer
 {
     /* Display extra columns. */
-    const EXTRA_LEFT = 0;
-    const EXTRA_RIGHT = 1;
+    public const EXTRA_LEFT = 0;
+    public const EXTRA_RIGHT = 1;
 
     /**
      * Attempts to return a concrete instance.
@@ -45,7 +46,7 @@ class Horde_Tree_Renderer
      * @return Horde_Tree  The newly created concrete instance.
      * @throws Horde_Tree_Exception
      */
-    public static function factory($renderer, $params = array())
+    public static function factory($renderer, $params = [])
     {
         if (!isset($params['tree']) && !isset($params['name'])) {
             throw new BadFunctionCallException('Either "name" or "tree" parameters must be specified.');
@@ -57,7 +58,8 @@ class Horde_Tree_Renderer
         } else {
             $tree = new Horde_Tree(
                 $params['name'],
-                isset($params['session']) ? $params['session'] : array());
+                $params['session'] ?? []
+            );
             unset($params['name']);
         }
         unset($params['session']);

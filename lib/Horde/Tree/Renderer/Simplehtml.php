@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Horde_Tree_Renderer_Simplehtml class provides simple HTML
  * rendering of a tree (no graphics).
@@ -7,7 +8,7 @@
  * - class: CSS class to use with the node
  * - url: URL to link the node to
  *
- * Copyright 2010-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2010-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -38,9 +39,9 @@ class Horde_Tree_Renderer_Simplehtml extends Horde_Tree_Renderer_Base
     {
         $node = $this->_nodes[$node_id];
 
-        $output = '<div' .
-            (empty($node['class']) ? '' : ' class="' . $node['class'] . '"') .
-            '>';
+        $output = '<div'
+            . (empty($node['class']) ? '' : ' class="' . $node['class'] . '"')
+            . '>';
         if (isset($this->_extra[$node_id][Horde_Tree_Renderer::EXTRA_LEFT])) {
             $output .= implode(' ', $this->_extra[$node_id][Horde_Tree_Renderer::EXTRA_LEFT]);
         }
@@ -54,10 +55,10 @@ class Horde_Tree_Renderer_Simplehtml extends Horde_Tree_Renderer_Base
         }
 
         if (isset($node['children'])) {
-            $output .= '&nbsp;[' .
-                $this->_generateUrlTag($node_id) .
-                ($node['expanded'] ? '-' : '+') .
-                '</a>]';
+            $output .= '&nbsp;['
+                . $this->_generateUrlTag($node_id)
+                . ($node['expanded'] ? '-' : '+')
+                . '</a>]';
         }
 
         $output .= '</div>';

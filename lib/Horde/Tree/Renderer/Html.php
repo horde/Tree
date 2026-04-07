@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Horde_Tree_Renderer_Html class provides HTML specific rendering
  * functions.
@@ -13,7 +14,7 @@
  * - target: Target for the 'url' link
  * - title: Link tooltip title
  *
- * Copyright 2003-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2003-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -31,14 +32,14 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
      *
      * @var array
      */
-    protected $_node_pos = array();
+    protected $_node_pos = [];
 
     /**
      * Drop line cache.
      *
      * @var array
      */
-    protected $_dropline = array();
+    protected $_dropline = [];
 
     /**
      * Current value of the alt tag count.
@@ -59,7 +60,7 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
      *
      * @var array
      */
-    protected $_images = array(
+    protected $_images = [
         'line' => null,
         'blank' => null,
         'join' => null,
@@ -74,8 +75,8 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
         'null_only' => null,
         'folder' => null,
         'folderopen' => null,
-        'leaf' => null
-    );
+        'leaf' => null,
+    ];
 
     /**
      * Constructor.
@@ -99,11 +100,11 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
      *             DEFAULT: false
      * </pre>
      */
-    public function __construct($tree, array $params = array())
+    public function __construct($tree, array $params = [])
     {
-        $params = array_merge(array(
-            'lines' => true
-        ), $params);
+        $params = array_merge([
+            'lines' => true,
+        ], $params);
 
         parent::__construct($tree, $params);
     }
@@ -118,7 +119,7 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
      */
     public function getTree($static = false)
     {
-        $this->_static = (bool)$static;
+        $this->_static = (bool) $static;
         return $this->_buildHeader() . parent::getTree($static);
     }
 
@@ -144,8 +145,8 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
      */
     protected function _buildHeader()
     {
-        if (!count($this->_header) ||
-            $this->getOption('hideHeaders')) {
+        if (!count($this->_header)
+            || $this->getOption('hideHeaders')) {
             return '';
         }
 
@@ -166,8 +167,8 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
                 $html .= ' class="' . $header['class'] . '"';
             }
 
-            $html .= '>' .
-                (empty($header['html']) ? '&nbsp;' : $header['html'])
+            $html .= '>'
+                . (empty($header['html']) ? '&nbsp;' : $header['html'])
                 . '</span>';
         }
 
@@ -188,10 +189,10 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
 
         if (isset($node['children']) && $node['expanded']) {
             foreach ($node['children'] as $key => $val) {
-                $this->_node_pos[$val] = array(
+                $this->_node_pos[$val] = [
                     'count' => count($node['children']),
-                    'pos' => $key + 1
-                );
+                    'pos' => $key + 1,
+                ];
                 $output .= $this->_buildTree($val);
             }
         }
@@ -335,22 +336,22 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
              * 2: Middle node
              * 3: Bottom node */
             $node_type = 0;
-            if ($this->getOption('lines_base') &&
-                (count($this->_root_nodes) > 1)) {
+            if ($this->getOption('lines_base')
+                && (count($this->_root_nodes) > 1)) {
                 switch (array_search($node_id, $this->_root_nodes)) {
-                case 0:
-                    $node_type = 1;
-                    $this->_dropline[0] = true;
-                    break;
+                    case 0:
+                        $node_type = 1;
+                        $this->_dropline[0] = true;
+                        break;
 
-                case (count($this->_root_nodes) - 1):
-                    $node_type = 3;
-                    break;
+                    case (count($this->_root_nodes) - 1):
+                        $node_type = 3;
+                        break;
 
-                default:
-                    $node_type = 2;
-                    $this->_dropline[0] = true;
-                    break;
+                    default:
+                        $node_type = 2;
+                        $this->_dropline[0] = true;
+                        break;
                 }
             }
 
@@ -371,21 +372,21 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
             } else {
                 if ($this->getOption('lines')) {
                     switch ($node_type) {
-                    case 0:
-                        $img = $this->_images['null_only'];
-                        break;
+                        case 0:
+                            $img = $this->_images['null_only'];
+                            break;
 
-                    case 1:
-                        $img = $this->_images['join_top'];
-                        break;
+                        case 1:
+                            $img = $this->_images['join_top'];
+                            break;
 
-                    case 2:
-                        $img = $this->_images['join'];
-                        break;
+                        case 2:
+                            $img = $this->_images['join'];
+                            break;
 
-                    case 3:
-                        $img = $this->_images['join_bottom'];
-                        break;
+                        case 3:
+                            $img = $this->_images['join_bottom'];
+                            break;
                     }
                 } else {
                     $img = $this->_images['blank'];
@@ -441,9 +442,9 @@ class Horde_Tree_Renderer_Html extends Horde_Tree_Renderer_Base
             }
         }
 
-        return $link_start .
-            $this->_generateImage($img, 'horde-tree-toggle') .
-            ($link_start ? '</a>' : '');
+        return $link_start
+            . $this->_generateImage($img, 'horde-tree-toggle')
+            . ($link_start ? '</a>' : '');
     }
 
     /**

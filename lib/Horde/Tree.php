@@ -1,9 +1,10 @@
 <?php
+
 /**
  * The Horde_Tree class provides a tree view of hierarchical
  * information. It allows for expanding/collapsing of branches.
  *
- * Copyright 2003-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2003-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,7 +22,7 @@ class Horde_Tree implements Countable
      * The preceding text, before the Horde_Tree instance name, used for
      * collapse/expand submissions.
      */
-    const TOGGLE = 'ht_toggle_';
+    public const TOGGLE = 'ht_toggle_';
 
     /**
      * The name of this instance.
@@ -36,21 +37,21 @@ class Horde_Tree implements Countable
      *
      * @var array
      */
-    protected $_session = array();
+    protected $_session = [];
 
     /**
      * An array containing all the tree nodes.
      *
      * @var array
      */
-    protected $_nodes = array();
+    protected $_nodes = [];
 
     /**
      * The top-level nodes in the tree.
      *
      * @var array
      */
-    protected $_root_nodes = array();
+    protected $_root_nodes = [];
 
     /**
      * Constructor.
@@ -62,7 +63,7 @@ class Horde_Tree implements Countable
      *                        set([string - Instance], [string - ID], [boolean - value]);
      *                        DEFAULT: No session storage
      */
-    public function __construct($name, $session = array())
+    public function __construct($name, $session = [])
     {
         $this->instance = $name;
         $this->_session = $session;
@@ -83,10 +84,11 @@ class Horde_Tree implements Countable
     public function addNode($node)
     {
         $node = array_merge(
-            array('parent' => null,
-                  'expanded' => true,
-                  'params' => array()),
-            $node);
+            ['parent' => null,
+                'expanded' => true,
+                'params' => []],
+            $node
+        );
 
         $nodeid = $this->nodeId($node['id']);
         $expanded = $node['expanded'];
@@ -123,7 +125,7 @@ class Horde_Tree implements Countable
         } else {
             $parent = $this->nodeId($node['parent']);
             if (empty($this->_nodes[$parent]['children'])) {
-                $this->_nodes[$parent]['children'] = array();
+                $this->_nodes[$parent]['children'] = [];
             }
             if (!in_array($nodeid, $this->_nodes[$parent]['children'])) {
                 $this->_nodes[$parent]['children'][] = $nodeid;
@@ -137,12 +139,12 @@ class Horde_Tree implements Countable
      * @param string $id     The unique node id.
      * @param array $params  Parameters to set (key/value pairs).
      */
-    public function addNodeParams($id, $params = array())
+    public function addNodeParams($id, $params = [])
     {
         $id = $this->nodeId($id);
 
         if (!is_array($params)) {
-            $params = array($params);
+            $params = [$params];
         }
 
         foreach ($params as $p_id => $p_val) {
@@ -193,7 +195,7 @@ class Horde_Tree implements Countable
             ksort($this->_nodes[$id]['children']);
         } else {
             $this->_sortCriteria = $criteria;
-            usort($this->_nodes[$id]['children'], array($this, 'sortHelper'));
+            usort($this->_nodes[$id]['children'], [$this, 'sortHelper']);
         }
 
         foreach ($this->_nodes[$id]['children'] as $child) {
@@ -214,8 +216,10 @@ class Horde_Tree implements Countable
             return -1;
         }
 
-        return strcoll($this->_nodes[$a][$this->_sortCriteria],
-                       $this->_nodes[$b][$this->_sortCriteria]);
+        return strcoll(
+            $this->_nodes[$a][$this->_sortCriteria],
+            $this->_nodes[$b][$this->_sortCriteria]
+        );
     }
 
     /**

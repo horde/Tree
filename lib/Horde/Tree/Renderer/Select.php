@@ -1,11 +1,12 @@
 <?php
+
 /**
  * The Horde_Tree_Renderer_Select class provides <option> tag rendering.
  *
  * Additional node parameters:
  * - selected: (boolean) Whether the node is selected.
  *
- * Copyright 2005-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2005-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -36,12 +37,12 @@ class Horde_Tree_Renderer_Select extends Horde_Tree_Renderer_Base
     {
         $node = $this->_nodes[$node_id];
 
-        $output = '<option value="' . htmlspecialchars($node_id) . '"' .
-            (empty($node['selected']) ? '' : ' selected="selected"') .
-            '>' .
-            str_repeat('&nbsp;', intval($node['indent']) * 2) .
-            htmlspecialchars($node['label']) .
-            '</option>';
+        $output = '<option value="' . htmlspecialchars($node_id) . '"'
+            . (empty($node['selected']) ? '' : ' selected="selected"')
+            . '>'
+            . str_repeat('&nbsp;', intval($node['indent']) * 2)
+            . htmlspecialchars($node['label'])
+            . '</option>';
 
         if (isset($node['children']) && $node['expanded']) {
             foreach ($node['children'] as $val) {

@@ -1,9 +1,10 @@
 <?php
+
 /**
  * The Horde_Tree_Renderer_Jquerymobile class provides rendering of a
  * tree as a jQuery Mobile list view.
  *
- * Copyright 2010-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2010-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -27,7 +28,7 @@ class Horde_Tree_Renderer_Jquerymobile extends Horde_Tree_Renderer_Base
         $this->_nodes = $this->_tree->getNodes();
 
         $tree = '';
-        foreach (array(true, false) as $special) {
+        foreach ([true, false] as $special) {
             foreach ($this->_tree->getRootNodes() as $node_id) {
                 $tree .= $this->_buildTree($node_id, $special);
             }
@@ -59,7 +60,7 @@ class Horde_Tree_Renderer_Jquerymobile extends Horde_Tree_Renderer_Base
                 $output .= implode(' ', $this->_extra[$node_id][Horde_Tree_Renderer::EXTRA_LEFT]);
             }
             if (!empty($node['url'])) {
-                $output .= '<a href="' . (string)$node['url'] . '"';
+                $output .= '<a href="' . (string) $node['url'] . '"';
                 if (isset($node['urlattributes'])) {
                     foreach ($node['urlattributes'] as $attribute => $value) {
                         $output .= ' ' . $attribute . '="' . htmlspecialchars($value) . '"';

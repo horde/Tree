@@ -1,9 +1,10 @@
 <?php
+
 /**
  * The Horde_Tree_Renderer_Base class provides the abstract interface
  * that all drivers must derive from.
  *
- * Copyright 2010-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2010-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -28,21 +29,21 @@ abstract class Horde_Tree_Renderer_Base
      *
      * @var array
      */
-    protected $_header = array();
+    protected $_header = [];
 
     /**
      * An array containing all the tree nodes.
      *
      * @var array
      */
-    protected $_nodes = array();
+    protected $_nodes = [];
 
     /**
      * An array containing extra columns for the tree nodes.
      *
      * @var array
      */
-    protected $_extra = array();
+    protected $_extra = [];
 
     /**
      * Keep count of how many extra columns there are on the left side
@@ -65,9 +66,9 @@ abstract class Horde_Tree_Renderer_Base
      *
      * @var array
      */
-    protected $_options = array(
-        'lines' => true
-    );
+    protected $_options = [
+        'lines' => true,
+    ];
 
     /**
      * Stores the sorting criteria temporarily.
@@ -89,7 +90,7 @@ abstract class Horde_Tree_Renderer_Base
      * @param Horde_Tree $tree  A tree object.
      * @param array $params     Additional parameters.
      */
-    public function __construct(Horde_Tree $tree, array $params = array())
+    public function __construct(Horde_Tree $tree, array $params = [])
     {
         $this->_tree = $tree;
         $this->setOption($params);
@@ -164,7 +165,7 @@ abstract class Horde_Tree_Renderer_Base
     public function setOption($options, $value = null)
     {
         if (!is_array($options)) {
-            $options = array($options => $value);
+            $options = [$options => $value];
         }
 
         foreach ($options as $option => $value) {
@@ -181,9 +182,8 @@ abstract class Horde_Tree_Renderer_Base
      */
     public function getOption($option)
     {
-        return isset($this->_options[$option])
-            ? $this->_options[$option]
-            : null;
+        return $this->_options[$option]
+            ?? null;
     }
 
     /**
@@ -204,14 +204,18 @@ abstract class Horde_Tree_Renderer_Base
 
         /* If any extra columns included here add them now. */
         if (!empty($node['right'])) {
-            $this->addNodeExtra($node['id'],
-                                Horde_Tree_Renderer::EXTRA_RIGHT,
-                                $node['right']);
+            $this->addNodeExtra(
+                $node['id'],
+                Horde_Tree_Renderer::EXTRA_RIGHT,
+                $node['right']
+            );
         }
         if (!empty($node['left'])) {
-            $this->addNodeExtra($node['id'],
-                                Horde_Tree_Renderer::EXTRA_LEFT,
-                                $node['left']);
+            $this->addNodeExtra(
+                $node['id'],
+                Horde_Tree_Renderer::EXTRA_LEFT,
+                $node['left']
+            );
         }
     }
 
@@ -221,7 +225,7 @@ abstract class Horde_Tree_Renderer_Base
      * @param string $id     The unique node id.
      * @param array $params  Parameters to set (key/value pairs).
      */
-    public function addNodeParams($id, $params = array())
+    public function addNodeParams($id, $params = [])
     {
         $this->_tree->addNodeParams($id, $params);
     }
@@ -238,25 +242,25 @@ abstract class Horde_Tree_Renderer_Base
         $id = $this->_tree->nodeId($id);
 
         if (!is_array($extra)) {
-            $extra = array($extra);
+            $extra = [$extra];
         }
 
         $col_count = count($extra);
 
         switch ($side) {
-        case Horde_Tree_Renderer::EXTRA_LEFT:
-            $this->_extra[$id][Horde_Tree_Renderer::EXTRA_LEFT] = $extra;
-            if ($col_count > $this->_colsLeft) {
-                $this->_colsLeft = $col_count;
-            }
-            break;
+            case Horde_Tree_Renderer::EXTRA_LEFT:
+                $this->_extra[$id][Horde_Tree_Renderer::EXTRA_LEFT] = $extra;
+                if ($col_count > $this->_colsLeft) {
+                    $this->_colsLeft = $col_count;
+                }
+                break;
 
-        case Horde_Tree_Renderer::EXTRA_RIGHT:
-            $this->_extra[$id][Horde_Tree_Renderer::EXTRA_RIGHT] = $extra;
-            if ($col_count > $this->_colsRight) {
-                $this->_colsRight = $col_count;
-            }
-            break;
+            case Horde_Tree_Renderer::EXTRA_RIGHT:
+                $this->_extra[$id][Horde_Tree_Renderer::EXTRA_RIGHT] = $extra;
+                if ($col_count > $this->_colsRight) {
+                    $this->_colsRight = $col_count;
+                }
+                break;
         }
     }
 
