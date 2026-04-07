@@ -1,5 +1,4 @@
 {
-    "minimum-stability": "dev",
     "name": "horde/tree",
     "description": "Tree rendering library",
     "type": "library",
@@ -22,32 +21,37 @@
             "role": "developer"
         }
     ],
-    "time": "2022-10-07",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://horde-satis.maintaina.com"
-        }
+    "keywords": [
+        "hierarchy"
     ],
+    "time": "2026-04-07",
+    "repositories": [],
     "require": {
-        "php": "^7.4 || ^8",
+        "php": "^8.1",
         "horde/exception": "^3 || dev-FRAMEWORK_6_0",
         "horde/url": "^3 || dev-FRAMEWORK_6_0",
-        "horde/util": "^3 || dev-FRAMEWORK_6_0"
+        "horde/util": "^3 || dev-FRAMEWORK_6_0",
+        "psr/http-message": "^1.1 || ^2.0"
     },
     "require-dev": {},
     "suggest": {
         "ext-gettext": "*"
     },
     "autoload": {
+        "psr-4": {
+            "Horde\\Tree\\": "src/"
+        },
         "psr-0": {
             "Horde_Tree": "lib/"
         }
     },
-    "autoload-dev": [],
+    "autoload-dev": {},
     "config": {
-        "allow-plugins": {
-            "horde/horde-installer-plugin": true
+        "allow-plugins": {}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-FRAMEWORK_6_0": "3.x-dev"
         }
     }
 }
