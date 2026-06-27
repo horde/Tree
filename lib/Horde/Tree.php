@@ -1,5 +1,7 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
  * The Horde_Tree class provides a tree view of hierarchical
  * information. It allows for expanding/collapsing of branches.
@@ -94,7 +96,7 @@ class Horde_Tree implements Countable
         $expanded = $node['expanded'];
 
         if ($this->_session) {
-            $toggle_id = Horde_Util::getFormData(Horde_Tree::TOGGLE . $this->instance);
+            $toggle_id = Util::getFormData(Horde_Tree::TOGGLE . $this->instance);
 
             if ($nodeid == $toggle_id) {
                 /* We have a URL toggle request for this node. */
